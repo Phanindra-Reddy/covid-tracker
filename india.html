@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <link rel="stylesheet" 
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+            crossorigin="anonymous">
+        <link rel="stylesheet" href="covid.css">
+        <title>Covid19 Statistics Tracker</title>
+        <link rel="icon" href="covid-img.jpg">
+
+    </head>
+  
+    <body>
+        <header class="header">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="#"><b>COVID19</b> Tracker</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <hr class="bg-white"/>
+                        <li class="nav-item active">
+                          <a class="nav-link" href="covid.html">Home</span></a>
+                        </li>
+                        <li class="nav-item active">
+                          <a class="nav-link" href="countries.html">Countries</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="india.html">India</a>
+                        </li>
+                        <li class="nav-item active">
+                          <a class="nav-link" href="vaccine.html">Vaccination</a>
+                      </li>
+                    </ul>
+                </div>
+                <!-- <div class="heading text-center">
+                    <h2 class="heading text-white"><b>COVID19</b> Tracker</h2>
+                </div> -->
+            </nav>
+        </header>
+
+        <section id="india">
+            
+            <div class="conatainer-fluid india-page" onload="indiaData()">
+                <div class="header  my-4">
+                    <p class="lead text-center" style="color: red;font-size:30px;">
+                        COVID19 LIVE UPDATES OF INDIA
+                    </p>
+                </div>
+
+                <div class="container">
+                    <div id="card" class="row text-center">
+                        <div class="col-sm-6 col-md-6 col-lg-4">
+                            <div class="card text-white bg-danger my-3 mx-auto" style="max-width: 18rem;">
+                                <div class="card-header">Total Cases</div>
+                                <div class="card-body">
+                                  <h5 id="total" class="card-title"></h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-4">
+                            <div class="card text-white bg-primary my-3 mx-auto" style="max-width: 18rem;">
+                                <div class="card-header">Active Cases</div>
+                                <div class="card-body">
+                                  <h5 id="active" class="card-title"></h5>
+                                </div>
+                              </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-4">
+                            <div class="card text-white bg-success my-3 mx-auto" style="max-width: 18rem;">
+                                <div class="card-header">Recovered Cases</div>
+                                <div class="card-body">
+                                  <h5 id="recovered" class="card-title"></h5>
+                                </div>
+                              </div>
+                        </div>
+
+
+                        <div class="col-sm-6 col-md-6 col-lg-4">
+                            <div class="card text-white bg-dark my-3 mx-auto" style="max-width: 18rem;">
+                                <div class="card-header">Deaths</div>
+                                <div class="card-body">
+                                  <h5 id="deaths" class="card-title"></h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm col-md-6 col-lg-4">
+                            <div class="card text-white bg-warning my-3 mx-auto" style="max-width: 18rem;">
+                                <div class="card-header">Active Today</div>
+                                <div class="card-body">
+                                  <h5 id="t-active" class="card-title"></h5>
+                                </div>
+                              </div>
+                        </div>
+                        <div class="col-sm col-md-6 col-lg-4">
+                            <div class="card text-white bg-info my-3 mx-auto" style="max-width: 18rem;">
+                                <div class="card-header">Deaths Today | Recovered</div>
+                                <div class="card-body">
+                                  <h5 id="t-dead-recover" class="card-title"></h5>
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                              <th scope="col">S.No</th>
+                              <th scope="col">State</th>
+                              <th scope="col">Total</th>
+                              <th scope="col">Active</th>
+                              <th scope="col">Recovered</th>
+                              <th scope="col">Deaths</th>
+                              <th scope="col">Last Updated</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <!-- <tr>
+                              <th scope="row">1</th>
+                              <td>Mark</td>
+                              <td>Otto</td>
+                              <td>@mdo</td>
+                              <td>@mdo</td>
+                              <td>@mdo</td>
+                              <td>@mdo</td>
+                            </tr> -->
+                          </tbody>
+                    </table>
+                  </div>
+            </div>
+
+            <div class="navbar navbar-expand-lg navbar-dark bg-dark text-white justify-content-center fixed">
+                <p class="footer pt-3" >Copyright &copy; 2020 |
+                    <a class="footer" href="https://phanindra-reddy.github.io/portfolio/" target="_blank">Phanindra Reddy</a>
+                </p>
+            </div>
+        </section>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+        <script>
+            function indiaData(){
+                fetch('https://api.covid19india.org/data.json')
+                .then(response=>response.json())
+                .then(res=>{
+                    //console.log(res.statewise);
+                    var output='';
+                    var id=1;
+                    var x=res.statewise;
+                    for(let i=1;i<x.length;i++){
+                       //console.log(x[i]);
+                        output+=`<tr>
+                              <th scope="row">${id}</th>
+                              <td>${x[i].state}</td>
+                              <td>${x[i].confirmed}</td>
+                              <td>${x[i].active}</td>
+                              <td>${x[i].recovered}</td>
+                              <td>${x[i].deaths}</td>
+                              <td>${x[i].lastupdatedtime}</td>
+                            </tr>`;
+                            id++;
+            
+                    }
+                    document.querySelector('tbody').innerHTML=output;
+                    document.querySelector('#total').textContent=x[0].confirmed;
+                    document.querySelector('#active').textContent=x[0].active;
+                    document.querySelector('#recovered').textContent=x[0].recovered;
+                    document.querySelector('#deaths').textContent=x[0].deaths;
+                    document.querySelector('#t-active').textContent=x[0].deltaconfirmed;
+                    document.querySelector('#t-dead-recover').textContent=x[0].deltadeaths+" | "+x[0].deltarecovered;
+                });
+            }
+            indiaData();
+        </script>
+    </body>
+</html>

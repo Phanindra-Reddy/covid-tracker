@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <link rel="stylesheet" 
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+            crossorigin="anonymous">
+        <link rel="stylesheet" href="vaccine.css">
+        <title>Covid19 Statistics Tracker</title>
+        <link rel="icon" href="covid-img.jpg">
+    </head>
+  
+    <body onload="onLoadData()">
+        <header class="header">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="#"><b>COVID19</b> Tracker</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <hr class="bg-white"/>
+                        <li class="nav-item active">
+                          <a class="nav-link" href="covid.html">Home</span></a>
+                        </li>
+                        <li class="nav-item active">
+                          <a class="nav-link" href="countries.html">Countries</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="india.html">India</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="vaccine.html">Vaccination</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- <div class="heading text-center">
+                    <h2 class="heading text-white"><b>COVID19</b> Tracker</h2>
+                </div> -->
+
+              </nav>
+        </header>
+
+        <section id="main">
+
+            <div class="vaccine_details">
+
+                <div class="vaccine_intro">
+                    <img src="./covid19logo.jpg" alt="cowin"/>
+                    <a href="https://selfregistration.cowin.gov.in/" target="_blank" class="btn btn-warning">Register for Vaccine / Sign In</a>
+                </div>
+
+                <div class="search_vaccine">
+                    <p>Check your nearest vaccination center and slots availability</p>
+
+                    <select id="target" class="btn btn-outline-warning dropdown">
+                        <div class="dropdown-menu" aria-labelledby="target">
+                            <option value="" class="dropdown-item">Select Vaccine</option>
+                            <option value="pincode_div" class="dropdown-item">Search By PIN</option>
+                            <option value="state_district_div" class="dropdown-item">Search By District</option>
+                        </div>
+                    <select>
+
+            
+                    <div id="pincode_div" class="inv">
+
+                        <form class="pincode_form" id="pincodeSubmit">
+                            <div class="form-group">
+                              <label for="exampleInputPincode">Enter PIN</label>
+                              <input type="number" class="form-control" id="exampleInputPincode" aria-describedby="pincodeHelp" placeholder="Enter your pin" >
+                              <small id="pincodeHelp" class="form-text text-muted"></small>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Search</button>
+                        </form>
+      
+                    </div>
+
+                    <div id="state_district_div" class="inv">
+                        <form class="state_district_form">
+
+                            <div class="form-group"> 
+                                <label for="inputState">Select State</label>
+                                <select id="inputState" onchange="onStateChange(this.value)" class="form-control">
+                                  <option selected>Choose State</option>
+                                  <option value="1">One</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputDistrict">Select District</label>
+                                <select id="inputDistrict" class="form-control">
+                                  <option selected>Choose District</option>
+                                  <option value="1">One</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Search</button>
+                        </form>
+                    </div>
+
+                    <div class="vaccine_table">
+
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">S.No</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">PIN</th>
+                                        <th scope="col">State</th>
+                                        <th scope="col">Dist</th>
+                                        <th scope="col">Branch name</th>
+                                        <th scope="col">Block Name</th>
+                                        <th scope="col">Address</th>
+                                        <th scope="col">Age Limit</th>
+                                        <th scope="col">Vaccine type</th>
+                                        <th scope="col">Slots</th>
+                                        <th scope="col">Fee</th>
+                                        <th scope="col">availability Capacity</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- <tr>
+                                        <th scope="row">1</th>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                        <td>@mdo</td>
+                                    </tr> -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+
+                    <div class="status_info">
+                        <!-- <h3 class="text-danger">No Data Found!!</h3> -->
+                    </div>
+            
+                    
+                </div>
+
+                <div class="vaccine_dos_donts">
+                    <a href="https://prod-cdn.preprod.co-vin.in/assets/pdf/User_Guide_Citizen%20registration_18+.pdf" class="btn btn-info mx-4 w-100" target="_blank">Know how to book your appointment</a>
+                    <a href="https://prod-cdn.preprod.co-vin.in/assets/pdf/Dos_and_Donts_for_Citizens.pdf" class="btn btn-danger w-100 " target="_blank">Dos andDon'ts</a>
+                </div>
+
+            </div>
+
+        </section>
+
+        <div class="navbar navbar-expand-lg navbar-dark bg-dark text-white justify-content-center fixed-bottom">
+            <p class="footer m-2" >Copyright &copy; 2020 |
+                <a class="footer" href="https://phanindra-reddy.github.io/portfolio/" target="_blank">Phanindra Reddy</a>
+            </p>
+        </div>
+    </body>
+
+    <script type="text/javascript" src="vaccine.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    
+ 
+</html>

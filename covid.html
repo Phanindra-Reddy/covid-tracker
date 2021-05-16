@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <link rel="stylesheet" 
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+            crossorigin="anonymous">
+        <link rel="stylesheet" href="covid.css">
+        <title>Covid19 Statistics Tracker</title>
+        <link rel="icon" href="covid-img.jpg">
+    </head>
+  
+    <body>
+        <header class="header">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="#"><b>COVID19</b> Tracker</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <hr class="bg-white"/>
+                        <li class="nav-item active">
+                          <a class="nav-link" href="#">Home</span></a>
+                        </li>
+                        <li class="nav-item active">
+                          <a class="nav-link" href="countries.html">Countries</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="india.html">India</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="vaccine.html">Vaccination</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- <div class="heading text-center">
+                    <h2 class="heading text-white"><b>COVID19</b> Tracker</h2>
+                </div> -->
+
+              </nav>
+        </header>
+
+        <section id="main">
+            <div class="conatainer-fluid mainpage">
+                <div id="map" class="world-map rounded p-2" onload="loadWorldMap()">                    
+                    <!-- <iframe aria-describedby="" id="datawrapper-chart-gtof5" src="https://datawrapper.dwcdn.net/gtof5/1/" scrolling="" frameborder="0"></iframe> -->
+                </div>
+                
+                <div class="country mx-auto">
+                    
+                    <div class="world rounded p-3" onload="loadWorldData()">
+                        <h4 class="text-center">World Wide Covid Statistics</h4>
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Total Cases
+                                <span id="w-total" class="badge badge-primary badge-pill"></span>
+                            </li>
+                            <li  class="list-group-item d-flex justify-content-between align-items-center">
+                                Active Cases
+                                <span id="w-active" class="badge badge-primary badge-pill"></span>
+                            </li>
+                            <li  class="list-group-item d-flex justify-content-between align-items-center">
+                                Critical Cases
+                                <span id="w-critical" class="badge badge-primary badge-pill"></span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Recovered
+                                <span id="w-recover" class="badge badge-primary badge-pill"></span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Deaths
+                                <span id="w-deaths" class="badge badge-primary badge-pill"></span>
+                            </li>    
+                        </ul>
+                    </div>
+
+                    <div class="india rounded p-3" onload="loadIndiaData()">
+                        <h4 class="text-center">India Wide Covid Statistics</h4>
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                              Total Cases
+                              <span id="in-total" class="badge badge-primary badge-pill"></span>
+                            </li>
+                            <li  class="list-group-item d-flex justify-content-between align-items-center">
+                                Active Cases
+                                <span id="in-active" class="badge badge-primary badge-pill"></span>
+                            </li>
+                            <li  class="list-group-item d-flex justify-content-between align-items-center">
+                              Critical Cases
+                              <span id="in-critical" class="badge badge-primary badge-pill"></span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Recovered
+                                <span id="in-recover" class="badge badge-primary badge-pill"></span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Deaths
+                                <span id="in-deaths" class="badge badge-primary badge-pill"></span>
+                              </li>
+                          </ul>
+                        
+                    </div>
+                    
+                </div>
+
+                
+            </div>
+
+            <section id="precautions">
+                <img
+                    src="https://fssai.gov.in/upload/uploadfiles/files/COVID_19_IEC_ENG67.jpg"
+                    alt="covid_precautions"
+                />
+            </section>
+
+            <section id="covid_info">
+                <span class="covid_links">
+                    <h5>For more info about <strong style="color:red;">Covid19</strong> :</h5>
+                    <a href="https://www.mohfw.gov.in/" target="_blank">https://www.mohfw.gov.in/</a>
+                </span>
+                <span class="covid_links api_for_data" >
+                    <h5>API's for Data</strong> :</h5>
+                    <ul>
+                        <li><a href="https://corona.lmao.ninja/v2/countries" target="_blank">https://corona.lmao.ninja/v2/countries</a></li><br/>
+                        <li><a href="https://coronavirus-19-api.herokuapp.com/countries/world" target="_blank">https://coronavirus-19-api.herokuapp.com/countries/world</a></li><br/>
+                        <li><a href="https://api.covid19india.org/data.json" target="_blank">https://api.covid19india.org/data.json</a></li>
+                    </ul>
+                </span>
+
+                <span class="covid_links">
+                    <h5>API's for Vaccine search(API Setu) :</h5>
+                    <a href="https://apisetu.gov.in/public/marketplace/api/cowin" target="_blank">https://apisetu.gov.in/public/marketplace/api/cowin</a>
+                </span>
+
+                
+            </section>
+
+            <section class="stay_home">
+                <h1>#STAY HOME STAY SAFE</h1>
+                <h2>Together we can fight Covid-19.</h2>
+            </section>
+
+            <div class="navbar navbar-expand-lg navbar-dark bg-dark text-white justify-content-center">
+                <p class="footer m-3" >Copyright &copy; 2020 |
+                    <a class="footer" href="https://phanindra-reddy.github.io/portfolio/" target="_blank">Phanindra Reddy</a>
+                </p>
+            </div>
+        </section>
+
+    </body>
+
+    <script type="text/javascript" src="covid.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    
+    <!-- Google JS Map API -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZ4b7irGtKr4ChCxVgA7QYioKQR5ytXns&callback=initMap&libraries=&v=weekly"
+      defer
+    ></script>
+    <script defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZ4b7irGtKr4ChCxVgA7QYioKQR5ytXns&callback=initMap">
+    </script>
+    <script>
+
+        // let map;
+        // function initMap() {
+        //      var india = {lat:  18, lng: 78.8718 };
+        //      map = new google.maps.Map(document.getElementById("map"), {
+        //          center: india,
+        //          zoom: 3
+        //      });   
+        // }
+
+    </script>
+ 
+</html>
